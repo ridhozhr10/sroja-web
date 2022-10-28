@@ -1,0 +1,74 @@
+(function ($) {
+	"use strict";
+	
+	$(document).ready(function () {
+		qodefFullscreenMenu.init();
+	});
+	
+	var qodefFullscreenMenu = {
+		init: function () {
+			var $fullscreenMenuOpener = $('a.qodef-fullscreen-menu-opener'),
+				$menuItems = $('#qodef-fullscreen-area nav ul li a');
+			
+			// Open popup menu
+			$fullscreenMenuOpener.on('click', function (e) {
+				e.preventDefault();
+				
+				if (!qodefCore.body.hasClass('qodef-fullscreen-menu--opened')) {
+					qodefFullscreenMenu.openFullscreen();
+					$(document).keyup(function (e) {
+						if (e.keyCode === 27) {
+							qodefFullscreenMenu.closeFullscreen();
+						}
+					});
+				} else {
+					qodefFullscreenMenu.closeFullscreen();
+				}
+			});
+			
+			//open dropdowns
+			$menuItems.on('tap click', function (e) {
+				var $thisItem = $(this);
+				if ($thisItem.parent().hasClass('menu-item-has-children')) {
+					e.preventDefault();
+					qodefFullscreenMenu.clickItemWithChild($thisItem);
+				} else if (($(this).attr('href') !== "http://#") && ($(this).attr('href') !== "#")) {
+					qodefFullscreenMenu.closeFullscreen();
+				}
+			});
+		},
+		openFullscreen: function () {
+			qodefCore.body.removeClass('qodef-fullscreen-menu-animate--out').addClass('qodef-fullscreen-menu--opened qodef-fullscreen-menu-animate--in');
+			qodefCore.qodefScroll.disable();
+		},
+		closeFullscreen: function () {
+			qodefCore.body.removeClass('qodef-fullscreen-menu--opened qodef-fullscreen-menu-animate--in').addClass('qodef-fullscreen-menu-animate--out');
+			qodefCore.qodefScroll.enable();
+			$("nav.qodef-fullscreen-menu ul.sub_menu").slideUp(200);
+		},
+		clickItemWithChild: function (thisItem) {
+			var $thisItemParent = thisItem.parent(),
+				$thisItemSubMenu = $thisItemParent.find('.sub-menu').first();
+			
+			if ($thisItemSubMenu.hasClass('qodef-opened')) {
+				$thisItemSubMenu.removeClass('qodef-opened');
+
+				setTimeout( function () {
+					$thisItemSubMenu.css('display', 'none');
+				}, 500);
+			} else {
+				$thisItemSubMenu.css('display', 'block');
+				$thisItemParent.siblings().find('.sub-menu').removeClass('qodef-opened');
+
+				setTimeout( function () {
+					$thisItemSubMenu.addClass('qodef-opened');
+				}, 50);
+
+				setTimeout( function () {
+					$thisItemParent.siblings().find('.sub-menu').css('display', 'none');
+				}, 500);
+			}
+		}
+	};
+	
+})(jQuery);

@@ -1,0 +1,217 @@
+/* ==========================================================================
+# Subscribe Popup default style
+========================================================================== */
+
+.qodef-sp-holder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 115;
+    visibility: hidden;
+    transition: opacity .2s ease-out .1s, visibility .2s ease-out .1s;
+    background: rgba(255,255,255,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .qodef-sp-inner {
+        width: 90%;
+        max-width: 748px;
+        background-color: #ffffff;
+        padding: 4px 4px 18px 4px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(5%);
+        box-shadow: $box-shadow;
+        transition: .8s cubic-bezier(0.26, 0.63, 0, 0.96);
+    }
+
+    .qodef-sp-close {
+        position: absolute;
+        top: 19px;
+        right: 19px;
+        display: block;
+        color: $heading-color;
+        font-size: 22px;
+
+        &:hover {
+            color: $main-color;
+        }
+
+        svg {
+            stroke: currentColor;
+            fill: currentColor;
+        }
+    }
+
+    .qodef-sp-content-container {
+        background-color: $additional-background-color;
+        background-size: cover;
+        padding: 16px 19px;
+        min-height: 276px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        @include qodefScreenSize680(){
+            min-height: 110px;
+        }
+
+        @include qodefScreenSize480(){
+            min-height: 170px;
+        }
+    }
+
+    .qodef-sp-title {
+        margin: 54px 0 -20px;
+        width: 43%;
+        color: $heading-color;
+        line-height: 1em;
+        font-size: 31px;
+        text-align: center;
+        width: 100%;
+
+        @include qodefScreenSize768(){
+            width: 100%;
+        }
+    }
+
+    .qodef-sp-subtitle {
+        margin: 0 0 20px 0;
+    }
+
+    .wpcf7 {
+        width: 100%;
+        display: block;
+    }
+
+    form{
+        margin-top: 46px;
+        width: 525px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+
+        @include qodefScreenSize768(){
+            width: 77%;
+            margin-left: 50%;
+        }
+
+        @include qodefScreenSize680(){
+
+        }
+    }
+
+    .qodef-newsletter-simple .qodef-newsletter-simple-submit {
+        margin-left: 17px;
+        transform: none;
+
+        button {
+            @include qodefButtonFilledColor();
+            @include qodefButtonFilledHoverColor();
+            padding: 14px 46px;
+        }
+
+        @include qodefScreenSize680(){
+            margin-left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @include qodefScreenSize480(){
+            margin-top: 20px
+        }
+
+    }
+
+    .qodef-newsletter-simple .qodef-newsletter-simple-input{
+        width: calc(100% - 197px);
+
+        @include qodefScreenSize680(){
+            width: 100%;
+        }
+
+        input{
+            padding: 12px 20px;
+            &::placeholder{
+                //text-align: center;
+            }
+        }
+    }
+
+    .qodef-sp-prevent {
+        @include qodefRelativeLayout();
+        margin-top: 26px;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .qodef-sp-prevent-inner {
+        cursor: pointer;
+
+        @include qodefScreenSize768(){
+            margin-left: 0;
+        }
+
+        > * {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            line-height: 1;
+        }
+    }
+
+    .qodef-sp-prevent-input {
+        margin: 1px 1px 0 0;
+        width: 12px;
+        height: 12px;
+        border: 1px solid $border-color;
+        background-color: #fafafa;
+        overflow: hidden;
+
+        svg {
+            @include qodefAbsoluteLayout();
+
+            stroke: $border-color;
+
+            opacity: 0;
+            transition: $opacity-transition;
+        }
+
+        &.qodef-sp-prevent-clicked {
+            svg {
+                opacity: 1;
+            }
+        }
+    }
+
+    .qodef-sp-prevent-label {
+        font-size: 13px;
+        margin-bottom: 0;
+        margin-top: 1px;
+    }
+}
+
+/* Popup open/close style */
+
+.qodef-sp-opened {
+
+    .qodef-sp-holder {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .2s ease-out, visibility .2s ease-out;
+
+        .qodef-sp-inner {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition: .8s cubic-bezier(0.26, 0.63, 0, 0.96) .1s;
+        }
+    }
+}

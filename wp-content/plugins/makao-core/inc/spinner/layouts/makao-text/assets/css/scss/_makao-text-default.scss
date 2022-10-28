@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Spinner layout styles
+   ========================================================================== */
+
+#qodef-page-spinner {
+
+    &.qodef-layout--makao-text {
+
+        &.qodef-init {
+
+            .qodef-makao-text {
+
+                .qodef-m-text {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .qodef-makao-text {
+            overflow: hidden;
+            line-height: 3.6em;
+
+            .qodef-m-text {
+                font-family: $heading-font;
+                color: #ffffff;
+                font-size: 60px;
+                font-weight: 700;
+                opacity: 0;
+                transition: .5s;
+                backface-visibility: hidden;
+                text-transform: uppercase;
+
+                @include qodefScreenSize480 {
+                    font-size: 40px;
+                }
+
+                .qodef-char-mask {
+                    display: inline-block;
+                    vertical-align: top;
+                    overflow: hidden;
+                    line-height: 1em;
+
+                    &.qodef-empty-char {
+                        min-width: 30px;
+                    }
+
+                    > span {
+                        display: inline-block;
+
+                        &.qodef-animate-text-out {
+                            animation: qodef-spinner-animate-text-out 1s forwards;
+                        }
+
+                        &.qodef-animate-text-in {
+                            animation: qodef-spinner-animate-text-in 2s cubic-bezier(0.6, 0.45, 0.14, 0.96) forwards !important;
+                        }
+                    }
+                }
+            }
+
+            @keyframes qodef-spinner-animate-text-in {
+                0% {
+                    transform: translate3d(0, 100%, 0);
+
+                }
+                100% {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+
+            @keyframes qodef-spinner-animate-text-out {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}

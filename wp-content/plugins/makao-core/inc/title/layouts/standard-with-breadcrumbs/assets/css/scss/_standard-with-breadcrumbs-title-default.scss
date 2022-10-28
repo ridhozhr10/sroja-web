@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Standard Title layout styles
+   ========================================================================== */
+
+.qodef-page-title.qodef-title--standard-with-breadcrumbs {
+
+	.qodef-m-content {
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+
+		@include qodefScreenSize680(){
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
+
+	.qodef-breadcrumbs {
+		margin-top: 5px;
+
+		@include qodefScreenSize680(){
+			text-align: center;
+		}
+
+		>*{
+			@include qodefHeadingStyle(h6);
+			color: #333;
+
+			@include qodefScreenSize680(){
+				display: inline;
+			}
+		}
+
+		span,
+		a>span,
+		.qodef-breadcrumbs-current{
+			font-size: 11px;
+			color: #333;
+		}
+	}
+}

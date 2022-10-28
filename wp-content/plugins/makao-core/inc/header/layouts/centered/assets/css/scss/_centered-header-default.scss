@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Header layout styles
+   ========================================================================== */
+
+$left-right-spacing: 12px; // Same size needs to be as in makao-core/inc/header/assets/css/scss/_common-default.scss
+
+.qodef-header--centered {
+	
+	#qodef-page-header {
+		height: 134px;
+	}
+	
+	#qodef-page-header-inner {
+		flex-direction: column;
+		justify-content: center;
+
+		.qodef-header-logo-link{
+			margin: 37px 0 16px;
+		}
+
+		.qodef-centered-header-wrapper{
+			flex: 1;
+			&:not(.qodef-content-grid){
+				width: 100%;
+			}
+
+			&.qodef-content-grid{
+				.qodef-widget-holder{
+					.qodef-woo-dropdown-cart{
+						padding: 0 1px;
+					}
+				}
+			}
+		}
+
+		> div {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 100%;
+			justify-content: space-between;
+			
+			.qodef-widget-holder {
+				margin-left: 0;
+			}
+			
+			.qodef-header-navigation {
+				margin: 0 $left-right-spacing * 2;
+			}
+		}
+
+		.qodef-centered-header-wrapper{
+			.qodef-widget-holder{
+				flex-basis: 20%;
+				justify-content: flex-end;
+
+				@include qodefScreenSize1440 {
+					flex-basis: 25%;
+				}
+
+				&:first-child {
+					justify-content: flex-start;
+
+					>div{
+						&:first-child{
+							margin-left: 0;
+						}
+					}
+				}
+			}
+			.qodef-header-navigation{
+				flex-basis: 60%;
+
+				@include qodefScreenSize1440 {
+					flex-basis: 50%;
+				}
+
+				.menu{
+					justify-content: center;
+				}
+			}
+		}
+	}
+}

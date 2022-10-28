@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Spinner layout styles
+   ========================================================================== */
+
+#qodef-page-spinner {
+
+    &.qodef-layout--makao-image {
+
+        &.qodef-init {
+
+            .qodef-makao-image {
+
+                .qodef-m-image {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        &.qodef-finished {
+
+            .qodef-makao-image {
+
+                .qodef-m-image {
+                    visibility: hidden;
+                    opacity: 0;
+                    transform: translateY(-30%);
+                }
+            }
+        }
+
+        .qodef-makao-image {
+
+            .qodef-m-image {
+                visibility: hidden;
+                opacity: 0;
+                transform: translateY(30%);
+                transition: .8s cubic-bezier(0.26, 0.63, 0, 0.96);
+            }
+        }
+    }
+}

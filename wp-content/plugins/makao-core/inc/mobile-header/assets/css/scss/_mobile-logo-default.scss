@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Mobile Logo styles
+   ========================================================================== */
+
+#qodef-page-mobile-header {
+	
+	.qodef-header-logo-image.qodef--customizer {
+		max-height: 100%;
+		width: auto;
+		margin-right: auto;
+	}
+	
+	.qodef-mobile-header-logo-link {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+
+		img {
+			
+			&.qodef--main {
+				opacity: 1;
+			}
+			
+			&.qodef--dark,
+			&.qodef--light {
+				opacity: 0;
+			}
+			
+			&:not(.qodef--main) {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
+		}
+	}
+
+	.qodef-mobile-header-opener{
+		margin-left: 0;
+	}
+
+	.qodef-widget-holder .widget{
+		&.widget_makao_core_woo_dropdown_cart{
+			margin: 0;
+
+			>.qodef-woo-dropdown-cart{
+				padding-right: 0;
+			}
+		}
+	}
+}

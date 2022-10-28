@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Swapping image gallery shortcode style - begin
+   ========================================================================== */
+
+.qodef-swapping-image-gallery {
+	position:relative;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-start;
+	
+	.qodef-m-info {
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+	
+	.qodef-m-image-holder {
+		flex-grow: .98;
+		flex-basis: 0;
+		overflow: hidden;
+		box-shadow: 3px 5px 15px 4px rgba(0,0,0,.07);
+		margin: 50px 30px 50px 50px;
+	}
+	
+	.qodef-m-info {
+		padding-top: 45px;
+	}
+	
+	.qodef-m-headline {
+		margin: 0 0 60px;
+	}
+	
+	.qodef-m-title {
+		margin: 0 0 24px;
+	}
+	
+	.qodef-m-description {
+		margin: 0;
+	}
+	
+	.qodef-m-thumbnails-holder {
+		
+		.swiper-pagination-custom {
+			width: auto;
+		}
+
+		.qodef-m-thumbnails-holder-inner {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+		
+		.qodef-m-thumbnail {
+			margin: 0 0 50px;
+			width: calc(50% - 25px);
+			font-size: 0;
+			cursor: pointer;
+			opacity: 1;
+			transition: opacity .3s ease-out;
+
+			&:nth-child(odd){
+				margin-right: 25px;
+			}
+
+			&:nth-child(even){
+				margin-left: 25px;
+			}
+			
+			img {
+				display: block;
+			}
+
+			&.qodef--active {
+
+				.qodef-m-inactive-thumbnail {
+					opacity: 0;
+				}
+
+				.qodef-m-active-thumbnail {
+					opacity: 1;
+				}
+			}
+
+			.qodef-m-thumbnail-holder-inner {
+				position: relative;
+			}
+
+			.qodef-m-inactive-thumbnail {
+				transition: opacity 0.3s ease;
+			}
+
+			.qodef-m-active-thumbnail {
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+		}
+	}
+	
+	&.qodef-info-position--right {
+		
+		.qodef-m-info {
+			padding-left: 120px;
+		}
+	}
+	
+	&.qodef-info-position--left {
+		
+		.qodef-m-info {
+			padding-right: 83px;
+		}
+	}
+}
+/* ==========================================================================
+   Swapping image gallery shortcode style - end
+   ========================================================================== */

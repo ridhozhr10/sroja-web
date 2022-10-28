@@ -1,0 +1,338 @@
+/* ==========================================================================
+   Global styles
+   ========================================================================== */
+
+.makao-core-page-inline-style {
+	position: absolute !important;
+	width: 0;
+	height: 0;
+	line-height: 1;
+	display: none;
+}
+
+@mixin qodefTooltipNotice($top: 0, $right: auto, $bottom: auto, $left: 0, $translate: -100%) {
+	position: absolute;
+	top: $top;
+	bottom: $bottom;
+	right: $right;
+	left: $left;
+	width: auto;
+	padding: 0 10px;
+	font-size: 13px;
+	line-height: 30px;
+	color: $text-color;
+	background-color: #fff;
+	border: 1px solid $border-color;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	white-space: nowrap;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY($translate);
+	transition: opacity .2s ease;
+}
+
+@mixin qodefTooltipNoticeHover() {
+	opacity: 1;
+	visibility: visible;
+}
+
+.qodef-align-all-elements{
+	>*{
+		display: inline-block;
+	}
+	br{
+		display: none;
+	}
+
+	&.qodef-inline-flex-centered {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#qodef-page-footer-bottom-area &{
+		a{
+			&:hover{
+				color: $main-color;
+			}
+		}
+	}
+
+	.qodef-custom-font{
+		text-transform: uppercase;
+		font-size: 11px !important;
+		font-weight: 500;
+		color: #000 !important;
+
+		&:after{
+			content:"";
+			position: absolute;
+			bottom: -1px;
+			left: 0;
+			height: 1px;
+			background-color: $main-color;
+			width: 100%;
+			transform-origin: 100% 50%;
+			transition: transform .3s cubic-bezier(.85,.26,.17,1);
+			transform: scaleX(0);
+		}
+
+		&:hover {
+			color: #000;
+
+			&:after{
+				transform: scaleX(1);
+				transform-origin: 0 50%;
+				transition: transform .4s cubic-bezier(.85,.26,.17,1);
+			}
+		}
+	}
+}
+
+.qodef-absolute-text{
+	pointer-events: none;
+}
+
+@media only screen and (min-width: 1279px) and (max-width: 1440px){
+	.qodef-header--vertical.qodef-content-grid-1300 section.qodef-elementor-content-grid>.elementor-container {
+		width: 950px;
+		max-width: 950px;
+	}
+}
+
+.qodef-header--vertical-sliding {
+	rs-layer-wrap {
+		a:not(.qodef-button) {
+			&:hover {
+				color: $main-color !important;
+			}
+		}
+	}
+}
+
+.single-product{
+	.swiper-button-next, .swiper-button-prev{
+		color: #666;
+	}
+}
+
+body{
+	#yith-quick-view-modal .qodef-woo-ratings{
+		display: inline-block;
+		vertical-align: middle;
+		width: 27%;
+		margin-bottom: 1px;
+	}
+
+	#yith-quick-view-content div.woocommerce-product-rating a.woocommerce-review-link{
+		display: inline-block;
+		vertical-align: middle;
+		color: #666;
+	}
+
+	#yith-quick-view-modal .price{
+		margin: 8px 0 0;
+	}
+
+	#yith-quick-view-modal .button{
+		padding: 12px 36px;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(225deg, rgba(8,66,44,1) 35%, rgba(8,66,44,1) 35%, rgba(65,110,93,.5), rgba(65,110,93,.5), rgba(8,66,44,.5));
+			background-position: 100% 50%;
+			background-size: 300% 300%;
+			z-index: -1;
+			transition: background-position .5s ease-out, opacity 0s ease-out .5s;
+			opacity: 0;
+		}
+
+		&:hover {
+
+			&:after {
+				opacity: 1;
+				background-position: 1% 50%;
+				transition: opacity 0s ease-out 0s, background-position .5s ease-out;
+			}
+		}
+	}
+
+	&.single-product{
+		.select2-container--default .select2-selection--single{
+			width: 192px;
+		}
+
+		.select2-container--default .select2-selection--single .select2-selection__arrow{
+			width: 47px;
+		}
+	}
+}
+
+@media all and (max-width: 320px){
+	body #yith-quick-view-modal .button {
+		padding: 12px 23px;
+	}
+}
+
+.qodef-custom-links{
+	a{
+		&:hover{
+			color: $main-color !important;
+		}
+	}
+}
+
+label {
+	display: block;
+	margin-bottom: 0;
+	margin-top: 15px;
+}
+
+rs-layer .gm-style-iw-d #bodyContent p {
+	color: $text-color;
+	margin-bottom: 10px;
+}
+
+.single-post{
+	.comment-form{
+		.form-submit{
+			button{
+				padding: 13px 57px;
+			}
+		}
+	}
+
+	#qodef-page-comments-form .comment-form-cookies-consent{
+		margin: 9px 0 29px;
+		
+		label{
+			margin-top: 4px;
+
+			@include qodefScreenSize480 {
+				margin-top: -2px;
+			}
+		}
+	}
+}
+
+body .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+	margin: 0 7px;
+}
+
+.qodef-capsed-word{
+	font-style: italic;
+	text-transform: uppercase;
+}
+
+.qodef-layout--borders-animated-others {
+
+	.qodef-top-border,
+	.qodef-right-border,
+	.qodef-bottom-border,
+	.qodef-left-border {
+		position: absolute;
+		background-color: #fff;
+		transition: all .2s linear;
+	}
+
+	.qodef-top-border,
+	.qodef-bottom-border {
+		width: 0;
+		height: 1px;
+		transition-delay: 0s;
+	}
+
+	.qodef-right-border,
+	.qodef-left-border {
+		width: 1px;
+		height: 0;
+		transition-delay: .2s;
+	}
+	
+	.qodef-initial-border {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: calc(100% - 4px);
+		height: calc(100% - 4px);
+		border: 1px solid rgba(#fff, 0.5);
+	}
+
+	.qodef-top-border {
+		top: 2px;
+		right: 2px;
+	}
+
+	.qodef-bottom-border {
+		left: 2px;
+		bottom: 2px;
+	}
+
+	.qodef-right-border {
+		bottom: 2px;
+		right: 2px;
+	}
+
+	.qodef-left-border {
+		left: 2px;
+		top: 2px;
+	}
+	
+	&:hover {
+
+		.qodef-top-border,
+		.qodef-bottom-border {
+			width: calc(100% - 4px);
+			transition-delay: .2s;
+		}
+
+		.qodef-right-border,
+		.qodef-left-border {
+			height: calc(100% - 4px);
+			transition-delay: 0s;
+		}
+	}
+}
+
+section.qodef-elementor-content-grid.qodef-responsive-no-grid>.elementor-container {
+	@include qodefScreenSize1024(){
+		width: 860px;
+	}
+
+	@include qodefScreenSize768(){
+		width: 660px;
+	}
+
+	@include qodefScreenSize680(){
+		width: 347px;
+	}
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1025px)  {
+	.qodef-custom-image-holder {
+		.elementor-column-wrap {
+			.elementor-row {
+				.elementor-inner-column {
+					&:first-child {
+						.elementor-column-wrap {
+							padding-right: 10.5px !important;
+						}
+					}
+
+					&:last-child {
+						.elementor-column-wrap {
+							padding-left: 10.5px !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

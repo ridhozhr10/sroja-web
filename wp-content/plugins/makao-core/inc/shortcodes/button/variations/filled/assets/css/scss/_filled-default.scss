@@ -1,0 +1,19 @@
+.qodef-button {
+
+    &.qodef-layout--filled {
+        position: relative;
+
+        &.qodef-html--link {
+            @include qodefButtonFilledColor();
+
+            &:hover {
+                @include qodefButtonFilledHoverColor();
+            }
+        }
+
+        .qodef-m-text {
+            position: relative;
+            z-index: 1;
+        }
+    }
+}

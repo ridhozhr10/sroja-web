@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Accordion shortcode responsive styles
+   ========================================================================== */
+
+.qodef-accordion.qodef-layout--simple {
+
+	@include qodefScreenSize480 {
+		.qodef-accordion-title {
+			line-height: 1.8em;
+		}
+	}
+}

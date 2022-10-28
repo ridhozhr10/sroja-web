@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Blog List styles
+   ========================================================================== */
+
+.qodef-blog {
+	
+	&.qodef-item-layout--standard {
+		
+		article {
+
+			&.qodef-active-hover {
+
+				.qodef-e-media-image {
+
+					a {
+
+						img {
+							transform: scale(1.05) translateX(5px);
+						}
+					}
+				}
+			}
+
+			.qodef-e-media-image {
+
+				a {
+					overflow: hidden;
+
+					img {
+						transform: scale(1.05);
+						transition: transform .8s cubic-bezier(0.26, 0.63, 0, 0.96);
+					}
+
+					&:hover {
+
+						img {
+							transform: scale(1.05) translateX(5px);
+						}
+					}
+				}
+			}
+
+			.qodef-e-text {
+
+				.qodef-e-title-link {
+
+					&:hover {
+						color: currentColor;
+					}
+				}
+			}
+			
+			.qodef-e-media {
+				margin-bottom: 34px;
+			}
+			
+			.qodef-info--top {
+				margin-bottom: 2px;
+			}
+			
+			.qodef-e-excerpt {
+				margin: 13px 0 0;
+				line-height: 25px;
+			}
+			
+			.qodef-info--bottom {
+				margin-top: 24px;
+			}
+
+			.qodef-e-inner {
+				>.qodef-e-media-image {
+					margin-bottom: 24px;
+				}
+			}
+		}
+		
+		&.qodef-col-num--1 {
+
+			.qodef-m-pagination{
+				margin-top: 52px;
+
+				@media only screen and (max-width: 1440px) and (min-width: 1025px)  {
+					margin-bottom: 30px;
+				}
+
+				@include qodefScreenSize1024 {
+					margin-bottom: 40px;
+				}
+
+				@include qodefScreenSize680 {
+					margin-bottom: 56px;
+				}
+			}
+		
+			article:not(:last-child) {
+				
+				.qodef-e-info {
+					
+					&.qodef-info--bottom {
+						margin-bottom: 38px;
+					}
+				}
+				
+				&.format-link {
+					
+					.qodef-e-link {
+						margin-bottom: 38px;
+					}
+				}
+				
+				&.format-quote {
+					
+					.qodef-e-quote {
+						margin-bottom: 38px;
+					}
+				}
+			}
+		}
+		
+		&:not(.qodef-col-num--1) {
+
+			.qodef-m-pagination.qodef--load-more{
+				margin-top: -1px;
+			}
+			
+			article {
+
+				.qodef-info--top {
+					margin-bottom: 6px;
+				}
+
+				.qodef-info--bottom {
+					margin-top: 23px;
+				}
+				
+				&.format-link {
+					
+					.qodef-e-link {
+						padding: 97px 37px 87px 37px;
+					}
+					
+					.qodef-icon-elegant-icons {
+						right: 40px;
+						font-size: 140px;
+					}
+				}
+				
+				&.format-quote {
+					
+					.qodef-e-quote {
+						padding: 105px 37px 92px 33px;
+						
+						&:before {
+							font-size: 540px;
+						}
+					}
+				}
+			}
+		}
+
+		&.qodef-layout--masonry {
+			&.qodef-grid.qodef-gutter--huge {
+				> .qodef-grid-inner {
+					> .qodef-grid-item {
+						margin: 0 0 67px;
+					}
+				}
+			}
+		}
+	}
+}

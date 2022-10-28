@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Category with products styles
+   ========================================================================== */
+
+.qodef-woo-category-with-products {
+	display: flex;
+	align-items: flex-start;
+	
+	&.qodef-woo-category-image-right {
+		flex-direction: row;
+		
+		.qodef-woo-category-holder {
+			order: 2;
+			margin: 0 0 0 12.5px;
+		}
+		
+		.qodef-woo-products-holder {
+			order: 1;
+			margin: 0 12.5px 0 0;
+		}
+	}
+	
+	.qodef-woo-category-holder {
+		position: relative;
+		width: 50%;
+		margin: 0 12.5px 0 0;
+		
+		.qodef-woo-category-holder-inner {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			padding: 28px;
+		}
+		
+		.woocommerce-loop-category__title {
+			margin: 0 0 7px;
+		}
+		
+		.woocommerce-loop-category__title,
+		.qodef-button.qodef-layout--textual {
+			color: #fff;
+		}
+		
+		.qodef-button.qodef-layout--textual {
+			font-weight: 700;
+			
+			&:hover {
+				color: #fff;
+			}
+			
+			.qodef-m-text {
+				&:before,
+				&:after {
+					border-color: #fff;
+				}
+			}
+		}
+		
+	}
+	
+	.qodef-woo-products-holder {
+		width: 50%;
+		margin: 0 0 0 12.5px;
+		
+		.qodef-woo-products {
+			display: flex;
+			list-style-type: none;
+		}
+		
+		.qodef-woo-product {
+			&:first-child {
+				margin-right: 12.5px;
+			}
+			
+			&:last-child {
+				margin-left: 12.5px;
+			}
+		}
+	}
+}

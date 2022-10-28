@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Product Categories List Info on Image styles
+   ========================================================================== */
+
+.qodef-woo-product-categories-list.qodef-item-layout--info-on-image, // our shortcode wrapper
+.qodef-woo-product-list { // woo shortcode wrapper
+
+    &:not(.qodef-swiper-container) {
+
+        .qodef-product-categories-item {
+
+            a {
+                overflow: hidden;
+            }
+
+            img {
+                transform: scale(1.05);
+                transition: transform .8s cubic-bezier(0.26, 0.63, 0, 0.96);
+                will-change: transform;
+            }
+
+            &:hover {
+
+                img {
+                    transform: scale(1.01);
+                }
+            }
+        }
+    }
+
+    .swiper-wrapper {
+        width: calc(100% + 1px);
+    }
+
+    .product-category {
+        a {
+            position: relative;
+            display: block;
+        }
+        
+        .qodef-product-categories-item {
+            position: relative;
+        }
+
+        .qodef-product-categories-info-holder {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin: 0 0 26px 28px;
+            padding: 19px 34px 28px;
+            width: 330px;
+            background-color: #fafafa;
+
+            @include qodefScreenSize1024 {
+                width: 70%;
+            }
+
+            @include qodefScreenSize768 {
+                padding: 19px 25px 28px;
+            }
+        }
+        
+        .woocommerce-loop-category__title {
+            margin: 0 0 2px;
+
+            @include qodefScreenSize768 {
+                @include qodefH4Style;
+            }
+        }
+        
+        .qodef-button {
+            font-weight: bold;
+        }
+        
+    }
+
+    .count {
+        display: none;
+    }
+    
+    .swiper-slide {
+        .qodef-product-categories-info-holder {
+            transform: translateY(15%);
+            opacity: 0;
+            visibility: hidden;
+            transition: .8s cubic-bezier(0.26, 0.63, 0, 0.96);
+        }
+        
+        &:hover {
+    
+            .qodef-product-categories-info-holder {
+                transform: translateY(0);
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.qodef-woo-product-categories-list.qodef-item-layout--info-on-image {
+    .swiper-button-next {
+        right: 4.5% !important;
+    }
+    
+    .swiper-button-prev {
+        left: 4.5% !important;
+    }
+}

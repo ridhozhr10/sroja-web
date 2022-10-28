@@ -1,0 +1,348 @@
+.qodef-vertical-split-slider {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    
+    .ms-tableCell {
+        height: 100vh !important; // to override inline from js and make sure it will be full height
+    }
+
+    .qodef-m-slide-image{
+        .qodef-e-title-link{
+            display: block;
+            position: relative;
+            z-index: 10;
+        }
+    }
+
+    .qodef-m-slide-content-inner {
+
+        img,
+        .qodef-e-text-link {
+            display: block;
+            transform: translateY(15%);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .qodef-e-text-link {
+            position: relative;
+            z-index: 10;
+        }
+    }
+
+    .qodef-e-title-link {
+        transform: translateY(15%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .ms-right {
+        right: 0 !important;
+    }
+}
+
+.qodef-vertical-split-slider-responsive {
+    display: none;
+}
+
+.qodef-vertical-split-slider,
+.qodef-vertical-split-slider-responsive {
+
+    .qodef-m-slide-content-inner{
+        display: inline-block;
+        text-align: left;
+        margin-right: 11px;
+        margin-top: 5.5%;
+    }
+
+    .qodef-m {
+
+        &-image {
+            //max-height: 799px;
+            max-height: 73vh;
+            width: auto;
+        }
+
+        &-title {
+            display: block;
+            margin: 0;
+            text-align: center;
+            color: #fff;
+            font-style: italic;
+        }
+
+        &-text {
+            margin: 13px 0 0 0;
+            text-align: left;
+            color: #fff;
+        }
+
+        &-button {
+            margin: 22px 0 0 0;
+        }
+    
+        &-slide {
+        
+            &-image {
+                background-size: cover;
+            }
+        
+            &-content {
+                text-align: center;
+                padding: 0 5%;
+            }
+        }
+    }
+}
+
+#multiscroll-nav {
+    display: none;
+    ul{
+        counter-reset: section;
+    }
+
+    
+    li {
+        width: 11px;
+        height: 11px;
+        margin: 14px;
+    }
+    
+    a {
+        
+        span {
+            top: 0;
+            left: 0;
+            color: #8a8581;
+            border: none;
+
+            &:after{
+                counter-increment: section;
+                content: counter(section);
+            }
+        }
+        
+        &.active {
+            
+            span {
+                color: $heading-color;
+                background: transparent;
+            }
+        }
+    }
+    
+    &.right {
+        right: 23px!important;
+    }
+    
+    .qodef-vertical-split-slider--initialized & {
+        display: block;
+    
+        $skins: ('light', 'dark');
+        $skins-color: (#fff, #333);
+        $active-skins-color: '#fff', '#333';
+
+        @each $skin in $skins {
+    
+            @at-root .qodef-header--#{$skin}#{&} {
+    
+                a:not(.active) {
+        
+                    span {
+                        color: #{nth($skins-color, index($skins, $skin))};
+                    }
+                }
+                a.active{
+                    span{
+                        color: #{nth($active-skins-color, index($skins, $skin))};
+
+                        &:before{
+                            width: 100%;
+                            transition: width .2s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.qodef-vertical-split-slider--initialized {
+    #multiscroll-nav {
+        display: block;
+        z-index: 98;
+    }
+}
+
+// multiscroll.css
+
+.ms-left,
+.ms-right {
+    position: relative !important;
+}
+
+.ms-left {
+
+    .ms-section {
+        transition: opacity .3s linear .5s;
+
+        &.active {
+            opacity: 1;
+            transition: opacity .3s linear;
+
+            .qodef-m-slide-content-inner {
+
+                img {
+                    animation: qodef-show-elements .8s forwards cubic-bezier(0.26, 0.63, 0, 0.96) .2s;
+                }
+
+                .qodef-e-text-link {
+                    animation: qodef-show-elements .8s forwards cubic-bezier(0.26, 0.63, 0, 0.96) .6s;
+                }
+            }
+        }
+    }
+}
+
+.ms-right {
+
+    .ms-section {
+        transition: opacity .3s linear .2s;
+
+        &.active {
+            opacity: 1;
+            transition: opacity .3s linear;
+
+            .qodef-e-title-link {
+                animation: qodef-show-elements .8s forwards cubic-bezier(0.26, 0.63, 0, 0.96) .4s;
+            }
+        }
+    }
+}
+
+.ms-section {
+    position: absolute !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    opacity: 0;
+}
+.ms-section.ms-table{
+    display: table;
+    width: 100%;
+}
+.ms-tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+#multiscroll-nav {
+    position: fixed;
+    z-index: 100;
+    margin-top: -32px;
+    top: 50%;
+    opacity: 1;
+}
+#multiscroll-nav.right {
+    right: 17px;
+}
+#multiscroll-nav.left {
+    left: 17px;
+}
+#multiscroll-nav ul{
+    margin: 0;
+    padding: 0;
+}
+#multiscroll-nav ul li{
+    display: block;
+    width: 26px;
+    height: 30px;
+    margin: 8px 7px;
+    position:relative;
+}
+#multiscroll-nav li a{
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+}
+#multiscroll-nav ul span{
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    color: $text-color;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+
+    &:before{
+        content:"";
+        height: 1px;
+        width: 0;
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        bottom: 0;
+        background: currentColor;
+        transition: width .2s ease-in-out;
+    }
+}
+#multiscroll-nav ul li .active span{
+    background: transparent;
+}
+.multiscroll-tooltip {
+    position: absolute;
+    color: #fff;
+    font-size: 14px;
+    font-family: arial, helvetica, sans-serif;
+    top: -2px;
+    white-space: nowrap;
+    max-width: 220px;
+}
+.multiscroll-tooltip.right {
+    right: 20px;
+}
+.multiscroll-tooltip.left {
+    left: 20px;
+}
+.ms-responsive .ms-hide{
+    display: none;
+}
+.ms-scrollable {
+    overflow: hidden;
+    position: relative;
+}
+.ms-scroller{
+    overflow: hidden;
+}
+.iScrollIndicator{
+    border: 0 !important;
+}
+
+@keyframes qodef-show-elements {
+    0% {
+        transform: translateY(15%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+    }
+}

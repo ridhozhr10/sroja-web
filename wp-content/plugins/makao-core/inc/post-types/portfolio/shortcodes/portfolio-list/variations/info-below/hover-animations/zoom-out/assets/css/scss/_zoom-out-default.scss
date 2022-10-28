@@ -1,0 +1,42 @@
+.qodef-portfolio-list.qodef-item-layout--info-below.qodef-hover-animation--zoom-out {
+
+    article {
+
+        .qodef-e-image {
+            overflow: hidden;
+
+            img {
+                transform: scale(1.05);
+                transition: transform .8s cubic-bezier(0.26, 0.63, 0, 0.96);
+                will-change: transform;
+            }
+
+            &:hover {
+
+                img {
+                    transform: scale(1.01);
+                }
+            }
+        }
+
+        &.qodef-active-hover {
+
+            .qodef-e-image {
+
+                img {
+                    transform: scale(1.01);
+                }
+            }
+        }
+
+        .qodef-e-content {
+
+            .qodef-e-title-link {
+
+                &:hover {
+                    color: currentColor;
+                }
+            }
+        }
+    }
+}

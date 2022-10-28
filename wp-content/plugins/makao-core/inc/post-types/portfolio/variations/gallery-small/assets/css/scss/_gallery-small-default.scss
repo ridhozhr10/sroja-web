@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Portfolio Single variation styles
+   ========================================================================== */
+
+.qodef-portfolio-single {
+    
+    &.qodef-layout--gallery-small {
+        
+        .qodef-media {
+            margin-right: 19px;
+        }
+        
+        .qodef-portfolio-info {
+            margin-top: 32px !important;
+        }
+    }
+}

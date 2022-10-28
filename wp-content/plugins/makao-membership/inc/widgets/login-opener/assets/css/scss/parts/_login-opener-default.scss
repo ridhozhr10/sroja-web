@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Login opener global styles
+   ========================================================================== */
+
+#qodef-page-header .widget.widget_makao_membership_login_opener {
+	height: 100%;
+	
+	.page-template-user-dashboard:not(.logged-in) & {
+		display: none;
+	}
+}
+
+.qodef-login-opener-widget {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	margin: 0 10px;
+	
+	.qodef-login-opener {
+		position: relative;
+		display: block;
+		@include qodefHeadingStyle('h5');
+	}
+	
+	.qodef-logged-in-user {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		height: 100%;
+		cursor: pointer;
+		
+		.qodef-m-user {
+			position: relative;
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
+		
+		.qodef-m-user-image {
+			flex-shrink: 0;
+			margin-right: 5px;
+		}
+		
+		.qodef-m-navigation-items {
+			position: absolute;
+			top: 100%;
+			left: -20px;
+			width: 200px;
+			padding: 20px;
+			background-color: $heading-color;
+			visibility: hidden;
+			opacity: 0;
+			transition: $opacity-transition;
+		}
+		
+		.qodef-m-navigation-item {
+			margin: 4px 0;
+			
+			.qodef-e-link {
+				position: relative;
+				display: flex;
+				align-items: flex-start;
+				color: #fff;
+			}
+			
+			.qodef-e-icon {
+				flex-shrink: 0;
+				margin-right: 5px;
+			}
+			
+			&.qodef--active {
+				
+				.qodef-e-link {
+				
+				}
+			}
+		}
+		
+		&:hover {
+			
+			.qodef-m-navigation-items {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}

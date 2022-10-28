@@ -1,0 +1,25 @@
+.qodef-image-gallery {
+
+    @include qodefScreenSize1024 {
+
+        &.qodef-layout--masonry.qodef-col-num--2 {
+            .qodef-image-wrapper {
+                &.qodef-grid-item {
+                    margin: 0 0 23px;
+                }
+            }
+        }
+
+    }
+
+    @media only screen and (min-width: 681px) and (max-width: 768px) {
+        &.qodef-layout--masonry.qodef-col-num--2 {
+            .qodef-image-wrapper {
+                &.qodef-grid-item {
+                    margin: 0 0 18px;
+                }
+            }
+        }
+    }
+
+}

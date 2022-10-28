@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Image With Text shortcode styles
+   ========================================================================== */
+
+.qodef-image-with-text {
+	@include qodefRelativeLayout();
+	
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+		
+		a, img {
+			display: block;
+		}
+	}
+	
+	.qodef-m-content {
+		@include qodefRelativeLayout();
+	}
+	
+	
+	&.qodef-layout--text-below {
+		.qodef-m-title {
+			margin: 31px 0 0;
+		}
+		
+		.qodef-m-text {
+			margin: 15px 0 0;
+		}
+	}
+	
+	&.qodef-layout--text-over-image {
+		
+		.qodef-m-image-holder {
+			position: relative;
+		}
+		
+		.qodef-m-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			margin: 0;
+			padding: 0 10%;
+			text-align: center;
+			
+			* {
+				color: #fff;
+			}
+		}
+		
+		.qodef-m-title {
+			margin: 0;
+		}
+	}
+
+	&.qodef-image-action--scrolling-image {
+
+		.qodef-m-image {
+			border: 1px solid #ddd;
+		}
+
+		.qodef-m-image-holder {
+			position: relative;
+			overflow: hidden;
+
+			.qodef-m-image-holder-inner {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+
+				a {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					z-index: 100;
+				}
+			}
+
+			.qodef-m-frame {
+				vertical-align: middle;
+			}
+		}
+
+		&.qodef-scrolling--vertical {
+
+			.qodef-m-image-holder-inner {
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		&.qodef-scrolling--horizontal {
+
+			.qodef-m-image-holder-inner {
+
+				img {
+					max-width: unset;
+					height: 100%;
+					width: auto;
+				}
+			}
+		}
+	}
+}

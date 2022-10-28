@@ -1,0 +1,119 @@
+/* ==========================================================================
+   #Back to Top styles - start
+   ========================================================================== */
+
+#qodef-back-to-top {
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	right: 25px;
+	bottom: 25px;
+	margin: 0;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 10000;
+	
+	.qodef-back-to-top-icon {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		font-size: 20px;
+		color: #fff;
+		background-color: $main-color;
+		border: 1px solid $main-color;
+		overflow: hidden;
+		transition: $color-transition, $background-color-transition, $border-color-transition;
+		
+		* {
+			position: relative;
+			display: block;
+			line-height: inherit;
+			z-index: 1;
+		}
+	}
+
+	.qodef-top-border,
+	.qodef-right-border,
+	.qodef-bottom-border,
+	.qodef-left-border {
+		position: absolute;
+		background-color: #fff;
+		transition: all .2s linear;
+	}
+
+	.qodef-top-border,
+	.qodef-bottom-border {
+		width: 0;
+		height: 1px;
+		transition-delay: 0s;
+	}
+
+	.qodef-right-border,
+	.qodef-left-border {
+		width: 1px;
+		height: 0;
+		transition-delay: .2s;
+	}
+	
+	.qodef-initial-border {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: calc(100% - 4px);
+		height: calc(100% - 4px);
+		border: 1px solid rgba(#fff, 0.5);
+	}
+
+	.qodef-top-border {
+		top: 2px;
+		right: 2px;
+	}
+
+	.qodef-bottom-border {
+		left: 2px;
+		bottom: 2px;
+	}
+
+	.qodef-right-border {
+		bottom: 2px;
+		right: 2px;
+	}
+
+	.qodef-left-border {
+		left: 2px;
+		top: 2px;
+	}
+	
+	&:hover {
+
+		.qodef-top-border,
+		.qodef-bottom-border {
+			width: calc(100% - 4px);
+			transition-delay: .2s;
+		}
+
+		.qodef-right-border,
+		.qodef-left-border {
+			height: calc(100% - 4px);
+			transition-delay: 0s;
+		}
+	}
+	
+	&.qodef--off {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.15s ease, visibility .0s .15s;
+	}
+	
+	&.qodef--on {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.3s ease;
+	}
+}
+
+/* ==========================================================================
+   #Back to Top styles - end
+   ========================================================================== */

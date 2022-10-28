@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Custom Font shortcode styles
+   ========================================================================== */
+
+.qodef-custom-font {
+	position: relative;
+	margin: 0;
+	text-align: center;
+
+	&.qodef-appear-animation {
+		visibility: hidden;
+
+		.elementor-editor-active & {
+			visibility: visible;
+		}
+
+		&.qodef-custom-font--animated {
+			visibility: visible;
+
+			.qodef-m-char {
+				display: inline-block;
+				opacity: 0;
+				transform: translateX(20px);
+				white-space: pre-wrap;
+
+				&.qodef--show {
+					opacity: 1;
+					transform: translateX(0);
+					transition: transform 1s cubic-bezier(0.23, 0.51, 0.15, 0.9), opacity .3s;
+				}
+
+				&.qodef--empty-char {
+					visibility: hidden;
+				}
+			}
+		}
+	}
+}

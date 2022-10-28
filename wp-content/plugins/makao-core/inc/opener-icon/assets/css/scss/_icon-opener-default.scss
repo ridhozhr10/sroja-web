@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Opener icon styles
+   ========================================================================== */
+
+.qodef-opener-icon {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	
+	.qodef-m-icon {
+		position: relative;
+		visibility: visible;
+		margin-bottom: 1px;
+
+		&.qodef--close {
+			position: absolute;
+			top: 0;
+			left: 0;
+			visibility: hidden;
+			font-size: 15px;
+		}
+
+		&.qodef--open{
+			font-size: 23px;
+		}
+	}
+	
+	&.qodef-source--icon-pack {
+		font-size: 23px;
+		
+		* {
+			display: inline-block;
+			line-height: inherit;
+			
+			&:before {
+				display: inline-block;
+				line-height: inherit;
+			}
+		}
+	}
+	
+	&.qodef-source--svg-path {
+		
+		span {
+			position: relative;
+			
+			> * {
+				vertical-align: middle;
+			}
+			
+			> *,
+			svg *,
+			path {
+				fill: currentColor;
+				stroke: currentColor;
+				transition: stroke .2s ease-out;
+			}
+		}
+	}
+	
+	&.qodef-source--predefined {
+		
+		.qodef-m-lines {
+			position: relative;
+			display: block;
+			width: 30px;
+			height: 30px;
+		}
+		
+		.qodef-m-line {
+			position: absolute;
+			left: 0;
+			height: 4px;
+			width: 100%;
+			background-color: currentColor;
+			transition: top .3s ease, transform .3s ease;
+			
+			&.qodef--1 {
+				top: 8px;
+			}
+			
+			&.qodef--2 {
+				top: 17px;
+			}
+		}
+	}
+	
+	.qodef-header--light:not(.qodef-fullscreen-menu--opened) & {
+		
+		&.qodef-source--icon-pack,
+		&.qodef-source--svg-path,
+		&.qodef-source--predefined,
+		.qodef-opener-label{
+			color: #fff !important;
+		}
+	}
+	
+	.qodef-header--dark:not(.qodef-fullscreen-menu--opened) & {
+		
+		&.qodef-source--icon-pack,
+		&.qodef-source--svg-path,
+		&.qodef-source--predefined {
+			color: #000 !important;
+		}
+	}
+}

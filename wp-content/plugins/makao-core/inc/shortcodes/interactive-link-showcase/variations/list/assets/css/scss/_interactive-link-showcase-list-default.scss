@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Interactive Link Showcase List styles
+   ========================================================================== */
+
+.qodef-interactive-link-showcase {
+
+	&.qodef-layout--list {
+		
+		.qodef-m-images {
+			position: relative;
+			display: block;
+			margin-left: auto;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		.qodef-m-items {
+			@include qodefAbsoluteLayout();
+			width: 100%;
+			justify-content: center;
+			flex-direction: column;
+		}
+		
+		.qodef-m-item {
+			margin: 4px 0;
+			
+			.qodef-e-title {
+				@include qodefH1Style;
+				line-height: 1.2em;
+				overflow: hidden;
+				color: #fff;
+
+				@include qodefScreenSize1366 {
+					font-size: 65px;
+				}
+				
+				@include qodefScreenSize480 {
+					font-size: 40px;
+				}
+				
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: 4px;
+					left: 0;
+					height: 1px;
+					background-color: #fff;
+					width: 100%;
+					transform-origin: 100% 50%;
+					transition: transform .3s cubic-bezier(.85,.26,.17,1);
+					transform: scaleX(0);
+				}
+			}
+			
+			&.qodef--active {
+				background-color: transparent;
+				
+				.qodef-e-title {
+					position: relative;
+					
+					&:after {
+						transform: scaleX(1);
+						transform-origin: 0 50%;
+						transition: transform .4s cubic-bezier(.85,.26,.17,1);
+					}
+				}
+			}
+		}
+		
+		
+		.qodef-m-item-images {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			.qodef-m-item-bg-holder {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: block;
+				opacity: 0;
+				transition: opacity .3s linear .5s;
+			}
+
+			> div:not(.qodef-m-item-bg-holder) {
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-50%);
+				animation: qodef-elements-out 1.5s forwards cubic-bezier(0.26, 0.63, 0, 0.96);
+
+				@keyframes qodef-elements-out {
+					0% {
+						opacity: 1;
+						visibility: visible;
+						transform: translateY(0);
+					}
+
+					100% {
+						opacity: 0;
+						visibility: hidden;
+						transform: translateY(-50%);
+					}
+				}
+			}
+			
+			&.qodef--active {
+				z-index: 5;
+
+				.qodef-m-item-bg-holder {
+					opacity: 1;
+					transition: opacity .3s linear;
+				}
+
+				> div:not(.qodef-m-item-bg-holder) {
+					animation: qodef-elements-in 2s forwards cubic-bezier(0.26, 0.63, 0, 0.96);
+
+					@keyframes qodef-elements-in {
+						0% {
+							opacity: 0;
+							visibility: hidden;
+							transform: translateY(50%);
+						}
+
+						100% {
+							opacity: 1;
+							visibility: visible;
+							transform: translateY(0);
+						}
+					}
+
+					@for $i from 1 through 10 {
+						&:nth-of-type(#{$i}) {
+							animation-delay: (#{$i* 150ms});
+						}
+					}
+				}
+			}
+		}
+		
+		.qodef-m-image {
+			opacity: 1;
+			
+			img {
+				display: block;
+			}
+		}
+		
+		.qodef-image-1-holder {
+			position: absolute;
+			left: 5.5%;
+			top: 27.5%;
+		}
+		.qodef-image-2-holder {
+			position: absolute;
+			left: 14.8%;
+			top: 57.8%;
+		}
+		.qodef-image-3-holder {
+			position: absolute;
+			right: 12.2%;
+			top: 16.5%;
+		}
+		.qodef-image-4-holder {
+			position: absolute;
+			right: 4.4%;
+			top: 25%;
+		}
+		.qodef-image-5-holder {
+			position: absolute;
+			right: 14.7%;
+			top: 69.4%;
+		}
+		
+	}
+}

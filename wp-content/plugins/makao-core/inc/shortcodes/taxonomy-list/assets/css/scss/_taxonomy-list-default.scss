@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Taxonomy List shortcode style - begin
+   ========================================================================== */
+
+.qodef-taxonomy-list {
+	
+	.qodef-e-link {
+		
+		&:hover {
+			
+			.qodef-e-title {
+				color: $main-color;
+			}
+		}
+	}
+	
+	.qodef-e-inner {
+		position: relative;
+	}
+	
+	.qodef-e-image {
+		
+		img {
+			display: block;
+		}
+	}
+	
+	.qodef-e-title {
+		transition: color $transition-timing;
+	}
+}

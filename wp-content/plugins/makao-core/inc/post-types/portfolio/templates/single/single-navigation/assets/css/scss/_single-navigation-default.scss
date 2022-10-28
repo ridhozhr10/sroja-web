@@ -1,0 +1,153 @@
+/* ==========================================================================
+   Single Post Navigation styles
+   ========================================================================== */
+
+#qodef-single-portfolio-navigation {
+	@include qodefRelativeLayout();
+	margin: 65px 0 3px;
+
+	.qodef-m-inner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		a{
+			img{
+				@include qodefScreenSize1024(){
+					display: none;
+				}
+			}
+		}
+	}
+
+	.qodef-m-nav {
+		position: relative;
+		display: flex;
+		align-items: center;
+		
+		> * {
+			display: block;
+			line-height: inherit;
+		}
+
+		*{
+			margin: 0;
+		}
+
+		.qoded-navigation-text-holder{
+			display: flex;
+			flex-direction: column;
+
+
+			.qodef-m-nav-label-holder{
+				display: flex;
+				flex-direction: row;
+
+				&:hover{
+					>span{
+						color: $main-color;
+					}
+				}
+
+				.qodef-m-nav-label{
+					line-height: 2.9em;
+				}
+			}
+
+
+		}
+		
+		&.qodef--prev {
+			
+			.qodef-m-nav-icon {
+				margin-right: 5px;
+				margin-left: 6px;
+
+				@include qodefScreenSize1024(){
+					margin-left: 0;
+				}
+			}
+
+			.qodef-m-nav-post-title{
+				margin-left: 10px;
+				margin-bottom: 2px;
+				margin-top: 2px;
+
+				@include qodefScreenSize1024(){
+					margin-left: 0;
+				}
+			}
+
+			.qoded-navigation-text-holder{
+				margin-left: 10px;
+
+				@include qodefScreenSize1024(){
+					margin-left: 0;
+				}
+			}
+		}
+		
+		&.qodef--next {
+			flex-direction: row-reverse;
+			text-align: right;
+			margin-left: auto;
+			
+			.qodef-m-nav-icon {
+				margin-left: 5px;
+				margin-right: 6px;
+
+				@include qodefScreenSize1024(){
+					margin-right: 0;
+				}
+			}
+
+			.qoded-navigation-text-holder{
+				margin-right: 10px;
+
+				@include qodefScreenSize1024(){
+					margin-right: 0;
+				}
+			}
+
+			.qodef-m-nav-label-holder{
+				flex-direction: row-reverse;
+			}
+
+			.qodef-m-nav-post-title{
+				margin-right: 10px;
+				margin-bottom: 2px;
+				margin-top: 2px;
+
+				@include qodefScreenSize1024(){
+					margin-right: 0;
+				}
+			}
+		}
+		
+		&.qodef--back-link {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			
+			.qodef-m-nav-icon {
+				font-size: 22px;
+				color: #909090;
+
+				@include qodefScreenSize480(){
+					display: none;
+				}
+			}
+		}
+	}
+	
+	.qodef-m-nav-icon {
+		font-size: 12px;
+		line-height: 30px;
+	}
+	
+	.qodef-m-nav-label {
+		//@include qodefHeadingStyle(h6, false);
+	}
+}

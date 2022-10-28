@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Section Title shortcode styles
+   ========================================================================== */
+
+.qodef-section-title {
+	@include qodefRelativeLayout();
+	z-index: 20;
+	
+	&.qodef-alignment--center {
+		text-align: center;
+	}
+	
+	&.qodef-alignment--left {
+		text-align: left;
+	}
+	
+	&.qodef-alignment--right {
+		text-align: right;
+	}
+	
+	.qodef-m-title {
+		margin: 0;
+	}
+	
+	.qodef-m-text {
+		margin: 17px 0 0;
+	}
+
+	.qodef-e-st-button{
+		margin: 48px 0 0;
+
+		.qodef-layout--outlined{
+			color: $heading-color;
+			padding: 13px 44px;
+		}
+	}
+
+	.qodef-m-caption {
+		@include qodefHeadingStyle(h6);
+		margin: 0 0 5px;
+		display: inline-block;
+	}
+
+	&.qodef-appear-animation {
+
+		> * {
+			display: block;
+			visibility: hidden;
+			opacity: 0;
+			transform: translateY(15%);
+
+			.elementor-editor-active & {
+				transform: translateY(0);
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+
+		&.qodef-appear {
+
+			> * {
+				animation: qodef-show-elements .8s forwards cubic-bezier(0.26, 0.63, 0, 0.96);
+
+				@for $i from 1 through 4 {
+					&:nth-child(#{$i}) {
+						animation-delay: $i * .1s;
+					}
+				}
+			}
+
+			@keyframes qodef-show-elements {
+				0% {
+					transform: translateY(15%);
+					opacity: 0;
+					visibility: hidden;
+				}
+
+				100% {
+					transform: translateY(0);
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

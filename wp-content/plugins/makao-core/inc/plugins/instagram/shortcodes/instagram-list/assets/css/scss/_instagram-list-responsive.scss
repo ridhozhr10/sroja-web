@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Instagram List responsive
+   ========================================================================== */
+
+.qodef-instagram-list {
+	
+	&.qodef-instagram-overlapping-images {
+		
+		
+		#sb_instagram {
+			#sbi_images {
+
+				@include qodefScreenSize680 {
+					display: flex;
+					flex-wrap: wrap;
+					
+					.sbi_item {
+						width: calc(50% + 7.5px)!important;
+						
+						&:nth-child(2n + 1) {
+							margin-left: 0 !important;
+						}
+						
+						&:nth-child(n+3) {
+							margin-top: 100px !important;
+						}
+					}
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	@include qodefScreenSize1440 {
+		.qodef-instagram-center-info {
+			padding: 40px;
+		}
+	}
+
+	@include qodefScreenSize1024 {
+		.qodef-instagram-center-info {
+			padding: 25px;
+
+			.qodef-instagram-ic-title {
+				margin: 0px 0 15px;
+				font-size: 35px;
+			}
+		}
+	}
+	
+	@include qodefScreenSize768 {
+		.qodef-instagram-center-info {
+			padding: 20px;
+		}
+	}
+
+	@media only screen and (max-width: 768px) and (min-width: 681px) {
+		.qodef-instagram-center-info {
+
+			.qodef-instagram-ic-subtitle {
+				margin: 20px 0 0;
+			}
+
+			.qodef-instagram-ic-title {
+				font-size: 30px;
+			}
+
+			.qodef-m-button {
+				margin: 0 0 20px;
+
+				.qodef-button {
+					padding: 9px 37px;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 680px) and (min-width: 481px) {
+		.qodef-instagram-center-info {
+			min-width: 240px;
+		}
+	}
+
+	@include qodefScreenSize480 {
+
+		$columns: 10;
+
+		@for $i from 3 through $columns {
+
+			#sb_instagram {
+				&.sbi_col_#{$i} {
+					#sbi_images {
+						.sbi_item {
+							width: 50%;
+						}
+					}
+				}
+			}
+		}
+
+		.qodef-instagram-center-info {
+			padding: 30px;
+			min-width: 285px;
+		}
+		
+		.qodef-instagram-ic-subtitle {
+			margin: 35px 0 0;
+		}
+		
+		.qodef-m-button {
+			margin: 0 0 30px;
+		}
+	}
+	
+
+}
+
+/* ==========================================================================
+   Instagram List responsive
+   ========================================================================== */

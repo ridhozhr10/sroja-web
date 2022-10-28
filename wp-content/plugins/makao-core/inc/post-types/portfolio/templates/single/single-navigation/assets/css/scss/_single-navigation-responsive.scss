@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Portfolio Single Navigation responsive styles
+   ========================================================================== */
+
+#qodef-single-portfolio-navigation {
+
+	@include qodefScreenSize480 {
+		.qodef-m-nav {
+			&.qodef--prev,
+			&.qodef--next {
+				width: 50%;
+			}
+		}
+
+		.qodef-m-inner {
+			align-items: flex-end;
+		}
+	}
+
+}

@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Countdown shortcode styles
+   ========================================================================== */
+
+.qodef-countdown {
+	
+	@include qodefScreenSize768 {
+		text-align: center;
+
+		&.qodef-show--4,
+		&.qodef-show--5,
+		&.qodef-show--6 {
+			
+			.qodef-digit-wrapper {
+				width: 33.33333333333333%;
+			}
+		}
+
+		&.qodef-layout--simple {
+			.qodef-digit {
+				font-size: 100px;
+			}
+
+			.qodef-label {
+				margin: 28px 0 0;
+			}
+		}
+	}
+
+	@include qodefScreenSize480 {
+		&.qodef-layout--simple {
+			.qodef-digit {
+				font-size: 75px;
+			}
+
+			.qodef-label {
+				margin: 20px 0 0;
+			}
+		}
+	}
+}

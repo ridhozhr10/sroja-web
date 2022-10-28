@@ -1,0 +1,104 @@
+.qodef-vertical-split-slider {
+
+	@mixin responsive-common {
+		display: none;
+
+		+ .qodef-vss-responsive {
+			display: block;
+
+			.qodef-m-slide {
+
+				&-content,
+				&-image {
+					min-height: 100vh;
+					background-position: center top;
+				}
+
+				&-image {
+					position: relative;
+
+					.qodef-e-title-link {
+						position: absolute;
+						left: 0;
+						top: 50%;
+						width: 100%;
+						transform: translateY(-50%);
+						text-align: center;
+					}
+				}
+
+				&-content {
+					padding: 15% 10% 10%;
+				}
+			}
+
+			.qodef-m-title,
+			.qodef-m-text {
+				color: #fff;
+			}
+
+			.qodef-m-text {
+				margin: 13px 0 0;
+			}
+		}
+	}
+
+	@include qodefScreenSize1440 {
+		.qodef-m {
+			&-image {
+				max-height: 480px;
+			}
+		}
+	}
+
+	@include qodefScreenSize1366 {
+		.qodef-m-title {
+			font-size: 100px !important;
+		}
+
+		.qodef-m {
+			&-image {
+				max-height: 435px;
+			}
+		}
+	}
+	
+	@include qodefScreenSize1024 {
+  
+		&.qodef-disable-below--1024 {
+			@include responsive-common;
+		}
+	}
+	
+	@include qodefScreenSize768 {
+  
+		&.qodef-disable-below--768 {
+			@include responsive-common;
+		}
+	}
+
+	@include qodefScreenSize680 {
+		&.qodef-disable-below--1024+.qodef-vss-responsive {
+			.qodef-m-slide-image {
+				background-size: auto 100%;
+			}
+		}
+	}
+}
+
+.qodef-vss-responsive{
+	&.qodef-m{
+
+		.qodef-m-slide-content{
+			@include qodefScreenSize480{
+				padding: 40% 10% 10%!important;
+			}
+		}
+
+		.qodef-m-title {
+			@include qodefScreenSize480(){
+				font-size: 45px;
+			}
+		}
+	}
+}

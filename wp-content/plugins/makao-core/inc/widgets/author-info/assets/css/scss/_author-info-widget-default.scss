@@ -1,0 +1,70 @@
+.widget.qodef-author-info {
+	text-align: center;
+
+	.qodef-m-social-icons{
+		margin-top: 20px;
+
+		a{
+			font-size: 12px;
+			text-transform: capitalize;
+			margin-right: 24px;
+			color: #333;
+
+			.qodef-social-network-text {
+				position: relative;
+				
+				&:after{
+					content:"";
+					position: absolute;
+					bottom: -4px;
+					left: 0;
+					height: 1px;
+					background-color: $main-color;
+					width: calc(100% - 3px);
+					transform-origin: 100% 50%;
+					transition: transform .3s cubic-bezier(.85,.26,.17,1);
+					transform: scaleX(0);
+				}
+			}
+
+			&:hover{
+				color: $main-color;
+
+				.qodef-social-network-text {
+					&:after{
+						transform: scaleX(1);
+						transform-origin: 0 50%;
+						transition: transform .4s cubic-bezier(.85,.26,.17,1);
+					}
+				}
+			}
+
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+
+		.qodef-social-network-text{
+			text-transform: uppercase;
+			font-size: 11px;
+			font-weight: 600;
+			letter-spacing: .2em;
+		}
+	}
+
+	.qodef-author-info-image {
+		margin-bottom: 26px;
+		display: inline-block;
+
+		img{
+			border-radius: 100%;
+		}
+	}
+
+	.qodef-author-info-name {
+		margin: 17px 0 21px;
+	}
+	.qodef-author-info-description {
+		margin: 0;
+	}
+}

@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Product List Info on Image styles
+   ========================================================================== */
+
+.qodef-woo-product-list {
+	
+	&.qodef-item-layout--info-on-image {
+
+		.qodef-woo-product-inner {
+
+			&:hover {
+
+				.qodef-add-to-cart-wrapper {
+
+					@keyframes qodef-show-elements {
+						0% {
+							transform: translateY(15%);
+							opacity: 0;
+							visibility: hidden;
+						}
+
+						100% {
+							transform: translateY(0);
+							visibility: visible;
+							opacity: 1;
+						}
+					}
+
+					> .button,
+					  .added_to_cart {
+						animation: qodef-show-elements .5s forwards cubic-bezier(0.26, 0.63, 0, 0.96) .1s;
+					}
+
+					> .yith-wcqv-button {
+						animation: qodef-show-elements .5s forwards cubic-bezier(0.26, 0.63, 0, 0.96) .2s;
+					}
+
+					> .qodef-woo-product-wishlist-holder {
+						animation: qodef-show-elements .5s forwards cubic-bezier(0.26, 0.63, 0, 0.96) .3s;
+					}
+				}
+			}
+
+			.qodef-woo-product-image-inner{
+				justify-content: center;
+			}
+
+			.qodef-add-to-cart-wrapper {
+				display: flex;
+				align-items: center;
+				position: absolute;
+				bottom: 16px;
+
+				> * {
+					transform: translateY(15%);
+					opacity: 0;
+					visibility: hidden;
+
+					&:hover {
+						color: rgba(#fff, .8);
+					}
+				}
+			}
+
+			.qodef-woo-product-price{
+				&.price{
+					margin: 11px 0 0;
+				}
+			}
+
+			.qodef-woo-product-categories{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+
+			.added_to_cart,
+			.button {
+				margin-top: 20px !important; // to override default list selector with id
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				height: 35px !important;
+				width: 35px !important;
+				font-size: 0 !important;
+				line-height: 0 !important;
+				padding: 0 !important;
+				margin: 0 5px !important;
+				background: transparent !important;
+				z-index: 3 !important;
+				cursor: pointer !important;
+				position: relative !important;
+				border: 1px solid transparent !important;
+				color: $heading-color !important;
+				font-weight: 300;
+
+				&:before {
+					font-family: simple-line-icons !important;
+					content: "\e035";
+					font-size: 14px;
+					display: block;
+				}
+
+				&.added {
+					display: none !important;
+				}
+
+				&:hover{
+					color: $main-color !important;
+				}
+			}
+
+			.added_to_cart{
+				color: $main-color;
+
+				&:after {
+					font-family: "linea-arrows-10"!important;
+					content: "\e006";
+					font-size: 15px;
+					display: block;
+					position: absolute;
+					right: 1px;
+					top: 10px;
+					color: $main-color;
+				}
+			}
+
+			.button {
+				&.product_type_external,
+				&.product_type_simple:not(.add_to_cart_button){
+					&:before {
+						font-family: simple-line-icons !important;
+						content: "\e090";
+						font-size: 14px;
+						display: block;
+					}
+				}
+			}
+
+			.yith-wcqv-button {
+				&:before {
+					font-family: simple-line-icons !important;
+					content: "\e087";
+					font-size: 17px;
+					display: block;
+				}
+
+			}
+
+			.qodef-woo-product-wishlist-holder {
+				margin-top: 20px !important; // to override default list selector with id
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				height: 35px !important;
+				width: 35px !important;
+				font-size: 0 !important;
+				line-height: 0 !important;
+				padding: 0 !important;
+				margin: 0 5px !important;
+				background: transparent !important;
+				z-index: 3 !important;
+				cursor: pointer !important;
+				position: relative !important;
+				border: 1px solid transparent !important;
+				color: $heading-color !important;
+				font-weight: 300;
+
+				&:hover{
+					.yith-wcwl-add-to-wishlist {
+						a {
+							span {
+								&:before {
+									color: $main-color !important;
+								}
+							}
+						}
+					}
+				}
+
+				.yith-wcwl-add-to-wishlist {
+
+					margin: 0;
+					z-index: 1;
+
+					a {
+						span {
+							&:before {
+								font-family: simple-line-icons !important;
+								content: "\e08a";
+								font-size: 14px;
+								display: block;
+								color: $heading-color;
+							}
+						}
+					}
+					.yith-wcwl-wishlistaddedbrowse,
+					.yith-wcwl-wishlistexistsbrowse{
+						span{
+							i{
+								margin-right: 0;
+
+								&:before {
+									font-family: FontAwesome !important;
+									content: "\f004";
+									color: $main-color;
+									font-size: 15px;
+									display: block;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

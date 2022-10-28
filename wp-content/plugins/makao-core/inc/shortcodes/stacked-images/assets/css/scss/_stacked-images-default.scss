@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Stacked Images style - begin
+   ========================================================================== */
+
+.qodef-stacked-images {
+	@include qodefRelativeLayout();
+	
+	&.qodef-layout--image {
+		padding-bottom: 78px;
+
+		.qodef-m-images-holder-inner {
+			display: flex;
+		}
+
+		.qodef-m-main-image-holder,
+		.qodef-m-stack-image-holder {
+			clip-path: inset(0 100% 0 0);
+			-webkit-clip-path: inset(0 100% 0 0);
+			overflow: hidden;
+
+			.elementor-editor-active & {
+				clip-path: inset(0 0 0 0);
+				-webkit-clip-path: inset(0 0 0 0);
+			}
+		}
+
+		.qodef-m-stack-image-holder {
+			margin-left: -70px;
+			transform: translateY(55%);
+		}
+		
+		.qodef-m-images {
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		&.qodef-appear {
+
+			.qodef-m-main-image-holder {
+				animation: qodef-show-element .8s forwards cubic-bezier(0.26, 0.63, 0, 0.96);
+			}
+
+			.qodef-m-stack-image-holder {
+				animation: qodef-show-element .8s forwards cubic-bezier(0.26, 0.63, 0, 0.96) .2s;
+			}
+
+			@keyframes qodef-show-element {
+				0% {
+					clip-path: inset(0 100% 0 0);
+					-webkit-clip-path: inset(0 100% 0 0);
+				}
+
+				100% {
+					clip-path: inset(0 0 0 0);
+					-webkit-clip-path: inset(0 0 0 0);
+				}
+			}
+		}
+	}
+	
+	&.qodef-layout--box-with-text {
+		padding-bottom: 88px;
+		
+		.qodef-m-stacked-content-holder {
+			position: relative;
+			display: flex;
+			align-items: flex-start;
+		}
+
+		img {
+			clip-path: inset(0 100% 0 0);
+			-webkit-clip-path: inset(0 100% 0 0);
+		}
+		
+		.qodef-m-content {
+			padding: 84px 52px 100px;
+			min-width: 370px;
+			width: 370px;
+			margin-left: -70px;
+			transform: translateY(96%);
+			background-color: #fafafa;
+			text-align: center;
+			clip-path: inset(0 100% 0 0);
+			-webkit-clip-path: inset(0 100% 0 0);
+
+			@include qodefScreenSize768(){
+				margin-left: calc(-35% - 2px);
+			}
+
+			.elementor-editor-active & {
+				clip-path: inset(0 0 0 0);
+				-webkit-clip-path: inset(0 0 0 0);
+			}
+			
+			a {
+				display: block;
+				padding: 7px 0;
+				font-weight: 400;
+				color: $text-color;
+
+				&:hover {
+					color: $main-color;
+				}
+			}
+		}
+		
+		.qodef-m-title {
+			margin: 0 0 17px;
+		}
+		
+		.qodef-m-text {
+			padding: 0 0 4px;
+			line-height: 25px;
+			font-weight: 400;
+		}
+
+		&.qodef-appear {
+
+			.qodef-m-stacked-content-holder {
+
+				img {
+					animation: qodef-show-element .8s forwards cubic-bezier(0.26, 0.63, 0, 0.96);
+
+					@include qodefScreenSize1024(){
+						transform: translate3d(29px, -35.735px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1.1) scaleY(1.1) scaleZ(1.1) !important;
+					}
+
+					@include qodefScreenSize768(){
+						transform: translate3d(30px, -35.735px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1.1) scaleY(1.1) scaleZ(1.1) !important;
+					}
+
+					@include qodefScreenSize680(){
+						transform: translate3d(0, -35.735px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1.1) scaleY(1.1) scaleZ(1.1) !important;
+					}
+				}
+
+				.qodef-m-content {
+					animation: qodef-show-element .8s forwards cubic-bezier(0.26, 0.63, 0, 0.96) .2s;
+				}
+
+				@keyframes qodef-show-element {
+					0% {
+						clip-path: inset(0 100% 0 0);
+						-webkit-clip-path: inset(0 100% 0 0);
+					}
+
+					100% {
+						clip-path: inset(0 0 0 0);
+						-webkit-clip-path: inset(0 0 0 0);
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Stacked Images style - end
+   ========================================================================== */

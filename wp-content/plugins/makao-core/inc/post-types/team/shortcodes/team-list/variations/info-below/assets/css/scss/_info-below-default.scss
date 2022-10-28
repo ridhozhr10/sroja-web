@@ -1,0 +1,133 @@
+.qodef-team-list {
+	
+	&.qodef-item-layout--info-below {
+
+		&.qodef-col-num--4,
+		&.qodef-col-num--5,
+		&.qodef-col-num--6{
+			.qodef-e-content {
+				margin: 22px 0 71px;
+
+				@include qodefScreenSize480 {
+					margin-bottom: 41px;
+				}
+			}
+		}
+
+		.qodef-e-content {
+			margin: 32px 0 0;
+			text-align: center;
+		}
+		
+		.qodef-e-image {
+			position: relative;
+			
+			&:hover {
+
+				.qodef-e-social {
+					opacity: .95;
+				}
+
+				.qodef-team-member-social-network {
+					animation: qodef-show-elements .5s forwards cubic-bezier(0.26, 0.63, 0, 0.96);
+
+					@keyframes qodef-show-elements {
+						0% {
+							transform: translateY(15%);
+							opacity: 0;
+							visibility: hidden;
+						}
+
+						100% {
+							transform: translateY(0);
+							visibility: visible;
+							opacity: 1;
+						}
+					}
+
+					@for $i from 1 through 3 {
+						&:nth-child(#{$i}) {
+							animation-delay: $i * .1s;
+						}
+					}
+				}
+			}
+		}
+		
+		.qodef-e-social {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			border: 1px solid $main-color;
+			background-size: cover;
+			background: #fff;
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+			
+			.qodef-team-member-social-icons {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
+			}
+			
+			.qodef-team-member-social-network-label {
+				margin: 0 0 6px;
+			}
+			
+			.qodef-team-member-social-network {
+				display: inline-block;
+				width: 33px;
+				height: 35px;
+				margin: 0 3px;
+				font-size: 11px;
+				font-weight: 600;
+				letter-spacing: .2em;
+				line-height: 35px;
+				border: none;
+				transform: translateY(5px);
+				opacity: 0;
+				visibility: hidden;
+				will-change: transform;
+				color: #000;
+				background-color: transparent;
+				text-transform: uppercase;
+
+				&:after{
+					content:"";
+					position: absolute;
+					bottom: 4px;
+					left: 4px;
+					height: 1px;
+					background-color: $main-color;
+					width: calc(100% - 10px);
+					transform-origin: 100% 50%;
+					transition: transform .3s cubic-bezier(.85,.26,.17,1);
+					transform: scaleX(0);
+				}
+
+				&:hover {
+					color: #000;
+
+					&:after{
+						transform: scaleX(1);
+						transform-origin: 0 50%;
+						transition: transform .4s cubic-bezier(.85,.26,.17,1);
+					}
+				}
+			}
+		}
+		
+		.qodef-e-role {
+
+		}
+		
+		.qodef-e-title {
+			margin: 0;
+		}
+	}
+}

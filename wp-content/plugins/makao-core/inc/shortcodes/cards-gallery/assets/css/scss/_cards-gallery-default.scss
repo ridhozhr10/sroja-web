@@ -1,0 +1,216 @@
+/* ==========================================================================
+   Cards Gallery shortcode style - begin
+   ========================================================================== */
+
+.qodef-cards-gallery {
+	@include qodefRelativeLayout();
+	padding: 10px 0;
+	
+	.qodef-e-inner {
+		@include qodefRelativeLayout();
+	}
+	
+	img {
+		position: relative;
+		display: block;
+		box-shadow: 3px 5px 15px 4px rgba(0,0,0,.07) !important;
+	}
+	
+	.qodef-m-fake-card {
+		position: relative;
+		display: block;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+	
+	.qodef-m-card {
+		position: absolute;
+		transition: all .15s ease;
+		
+		&.qodef-animating {
+			transition: all 1s cubic-bezier(.19, 1, .22, 1);
+			pointer-events: none;
+		}
+		
+		&.qodef-animating-siblings {
+			transition: all .6s cubic-bezier(0, 0, 0, 1);
+			pointer-events: none;
+		}
+	}
+	
+	&.qodef-orientation--left .qodef-m-card {
+		left: 0;
+		will-change: transform;
+		
+		&.qodef-out {
+			transform: translateX(-100%);
+		}
+		
+		&:nth-last-child(6) {
+			transform: translate(39%, -39%);
+		}
+		
+		&:nth-last-child(5) {
+			transform: translate(31.2%, -31.2%);
+		}
+		
+		&:nth-last-child(4) {
+			transform: translate(23.4%, -23.4%);
+		}
+		
+		&:nth-last-child(3) {
+			transform: translate(15.6%, -15.6%);
+		}
+		
+		&:nth-last-child(2) {
+			transform: translate(7.8%, -7.8%);
+		}
+		
+		&:not(:last-of-type) {
+			cursor: pointer;
+		}
+		
+		&:not(:last-of-type):not(.active):hover {
+			margin-left: 10px !important;
+		}
+	}
+	
+	&.qodef-orientation--right .qodef-m-card {
+		right: 0;
+		will-change: transform;
+		
+		&.qodef-out {
+			transform: translateX(100%);
+		}
+		
+		&:nth-last-child(6) {
+			transform: translate(-39%, -39%);
+		}
+		
+		&:nth-last-child(5) {
+			transform: translate(-31.2%, -31.2%);
+		}
+		
+		&:nth-last-child(4) {
+			transform: translate(-23.4%, -23.4%);
+		}
+		
+		&:nth-last-child(3) {
+			transform: translate(-15.6%, -15.6%);
+		}
+		
+		&:nth-last-child(2) {
+			transform: translate(-7.8%, -7.8%);
+		}
+		
+		&:not(:last-of-type) {
+			cursor: pointer;
+		}
+		
+		&:not(:last-of-type):not(.active):hover {
+			margin-right: 10px !important;
+		}
+	}
+	
+	&.qodef-cards-gallery-2-items {
+		padding-top: 5%;
+		padding-right: 7.1%;
+
+		&.qodef-orientation--right {
+			padding-right: 0;
+			padding-left: 7.2%;
+		}
+	}
+	&.qodef-cards-gallery-3-items {
+		padding-top: 7%;
+	}
+	&.qodef-cards-gallery-4-items {
+		padding-top: 9.33%;
+	}
+	&.qodef-cards-gallery-5-items {
+		padding-top: 11.66%;
+	}
+	&.qodef-cards-gallery-6-items {
+		padding-top: 14%;
+	}
+	
+	.no-touch &.qodef-animation--bundle {
+		
+		img {
+			visibility: hidden;
+		}
+		
+		&.qodef-orientation--right.qodef-appeared {
+			@include keyframes(qodefCardAppearFromRight) {
+				0% {
+					transform: translate3d(100%, 0, 0);
+					opacity: 0;
+					visibility: visible;
+				}
+				
+				30% {
+					opacity: 1;
+					visibility: visible;
+				}
+				
+				100% {
+					visibility: visible;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+			
+			img {
+				animation: qodefCardAppearFromRight 1s cubic-bezier(.19, 1, .22, 1) forwards;
+			}
+			
+			.qodef-m-card {
+				@for $i from 1 through 8 {
+					&:nth-child(#{$i}) {
+						img:not(.qodef-animation-done) {
+							animation-delay: $i * .2s;
+						}
+					}
+				}
+			}
+		}
+		
+		&.qodef-orientation--left.qodef-appeared {
+			@include keyframes(qodefCardAppearFromLeft) {
+				0% {
+					visibility: visible;
+					opacity: 0;
+					transform: translate3d(-100%, 0, 0);
+				}
+				
+				30% {
+					visibility: visible;
+					opacity: 1;
+				}
+				
+				100% {
+					visibility: visible;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+			
+			img {
+				animation: qodefCardAppearFromLeft 1s cubic-bezier(.19, 1, .22, 1) forwards;
+			}
+			
+			.qodef-m-card {
+				@for $i from 1 through 8 {
+					&:nth-child(#{$i}) {
+						img:not(.qodef-animation-done) {
+							animation-delay: $i * .2s;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Cards Gallery shortcode style - begin
+   ========================================================================== */

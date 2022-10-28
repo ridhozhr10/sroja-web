@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Testimonials list shortcode styles
+   ========================================================================== */
+
+.qodef-testimonials-quote {
+	position: absolute;
+	top: -45px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 0;
+}
+
+.qodef-testimonials-list {
+
+	.swiper-pagination-bullets .swiper-pagination-bullet{
+		&:after{
+			font-size: 13px;
+		}
+
+		&:before{
+			bottom: 3px;
+		}
+	}
+	
+	.qodef-e-inner {
+		padding: 12px 30px 40px;
+		text-align: center;
+
+		@include qodefScreenSize680(){
+			padding: 21px 0 40px;
+		}
+	}
+	
+	.qodef-e-media-image {
+		line-height: 0;
+		margin-bottom: 25px;
+	}
+
+	.qodef-e-content {
+		cursor: grab;
+	}
+	
+	.qodef-e-title {
+		margin: 0 0 25px;
+	}
+	
+	.qodef-e-text {
+		margin: 0 0 15px;
+		font-size: 18px;
+		line-height: 1.44em;
+	}
+	
+	.qodef-e-author {
+		margin: 0 0 57px;
+
+		.qodef-e-author-name{
+			font-weight: 500;
+			font-size: 26px;
+		}
+	}
+	
+	.swiper-pagination-bullets {
+		bottom: 35px!important;
+		
+		//.swiper-pagination-bullet {
+		//	&:after {
+		//		background-color: #808080;
+		//	}
+        //
+		//	&.swiper-pagination-bullet-active {
+		//		&:after {
+		//			background-color: $main-color;
+		//		}
+		//	}
+		//}
+	}
+
+	&.qodef-skin--light {
+		.qodef-e-title,
+		.qodef-e-text,
+		.qodef-e-author {
+			color: #fff;
+		}
+		
+		.swiper-pagination-bullet {
+			&:before {
+				background-color: #fff;
+			}
+		}
+	}
+
+	.swiper-wrapper{
+		.swiper-slide{
+			opacity: 0;
+			transition: opacity .35s ease-out;
+
+			&.swiper-slide-active,
+			&.swiper-slide-duplicate-active {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.qodef-testimonials-navigation {
+	.swiper-button-next,
+	.swiper-button-prev {
+		top: 34px !important;
+
+		&:after {
+			font-size: 25px;
+			color: #808080;
+		}
+	}
+
+	.swiper-button-prev {
+		@include qodefScreenSize1024(){
+			transform: translateX(-238%);
+		}
+
+		@include qodefScreenSize768(){
+			transform: translateX(-164%);
+		}
+
+		@include qodefScreenSize680(){
+			display: none;
+		}
+	}
+
+	.swiper-button-next{
+		@include qodefScreenSize1024(){
+			transform: translateX(238%);
+		}
+
+		@include qodefScreenSize768(){
+			transform: translateX(164%);
+		}
+
+		@include qodefScreenSize680(){
+			display: none;
+		}
+	}
+
+}

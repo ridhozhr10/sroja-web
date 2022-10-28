@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Portfolio Single variation styles
+   ========================================================================== */
+
+.qodef-portfolio-single-slider {
+	
+	.swiper-slide {
+		width: 100%;
+	}
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		&:after {
+			color: #fff;
+		}
+	}
+}
+
+.qodef-portfolio-single {
+	
+	&.qodef-layout--slider {
+		
+		.qodef-portfolio-info {
+			margin-top: 99px!important;
+
+			@include qodefScreenSize1024(){
+				margin-top: 32px!important;
+			}
+		}
+
+		.qodef-grid-item{
+			&:not(.qodef-portfolio-info){
+				margin-top: 41px;
+			}
+		}
+	}
+}

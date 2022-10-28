@@ -1,0 +1,74 @@
+.qodef-banner {
+	
+	&.qodef-layout--link-button {
+
+		.qodef-m-image {
+			overflow: hidden;
+
+			img {
+				transform: scale(1.05);
+				transition: transform .8s cubic-bezier(0.26, 0.63, 0, 0.96);
+			}
+		}
+
+		&:hover {
+
+			.qodef-m-image {
+
+				img {
+					transform: scale(1.05) translateX(5px);
+				}
+			}
+
+			.qodef-m-button {
+
+				.qodef-m-text {
+
+					&:after {
+						width: 100%;
+						transition: width .5s cubic-bezier(0.26, 0.63, 0, 0.96);
+					}
+				}
+			}
+		}
+		
+		.qodef-m-content-inner {
+			align-items: flex-start;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding: 30px;
+		}
+		
+		.qodef-m-title {
+			margin: 10px 0 33px;
+		}
+		
+		.qodef-m-text {
+			margin: 0;
+		}
+		
+		.qodef-m-button {
+			position: absolute;
+			bottom: 30px;
+			left: 30px;
+
+			.qodef-layout--textual {
+				&:hover {
+					background: transparent;
+				}
+			}
+
+			.qodef-m-text,
+			.qodef-btn-text {
+				&:before {
+					border-color: currentColor;
+					opacity: 50%;
+				}
+				&:before,
+				&:after {
+					border-color: currentColor;
+				}
+			}
+		}
+	}
+}

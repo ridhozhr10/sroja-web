@@ -1,0 +1,18 @@
+.qodef-taxonomy-list {
+	
+	&.qodef-layout--icon-above {
+		padding: 5% 10%;
+		background-color: #fff;
+		border: 1px solid $border-color;
+		border-radius: $border-radius;
+		box-shadow: $box-shadow;
+		
+		.qodef-e-inner {
+			text-align: center;
+		}
+		
+		.qodef-m-title {
+			margin: 10px 0;
+		}
+	}
+}
